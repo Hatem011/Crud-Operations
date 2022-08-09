@@ -1,5 +1,3 @@
-
-
 var nameInput=document.getElementById("ProductName")
 var priceInput=document.getElementById("ProductPrice")
 var categoryInput=document.getElementById("ProductCategory")
@@ -7,9 +5,7 @@ var descInput=document.getElementById("ProductDescription")
 var btnAdd=document.getElementById("btnAdd")
 var searchInput=document.getElementById("searchInput")
 var inputs=document.getElementsByClassName("form-control")
-
 var currentIndex=0
-
 var ProductList=[]
 
 if(localStorage.getItem('list')!=null)
@@ -23,9 +19,11 @@ btnAdd.onclick=function()
     displayProduct()
     reset()
 }
+
+/* start add*/ 
+
 function addProduct()
 {
-  
         var product = 
         {
             name:nameInput.value,
@@ -34,15 +32,12 @@ function addProduct()
          description:descInput.value,
                 
         }
-    
         ProductList.push(product)
         localStorage.setItem('list',JSON.stringify(ProductList))
-        displayProduct()
-        reset()
-    
- 
-  
 }
+/* end add */ 
+
+/* start display */ 
 
 function displayProduct()
 {
@@ -57,10 +52,14 @@ function displayProduct()
         <td>${ProductList[i].Category}</td>
         <td>${ProductList[i].description}</td>
         <td>
-            <button class="btn btn-outline-danger" onclick="updateProduct(`+i+`)">update</button>
+            <button class="btn btn-outline-danger" onclick="updateProduct(`+i+`)">
+            <i class="fas fa-edit"></i>
+            </button>
         </td>
         <td>
-         <button class="btn btn-outline-warning" onclick="deleteProduct(`+i+`)">delete</button>
+         <button class="btn btn-outline-warning" onclick="deleteProduct(`+i+`)">
+         <i class="fas fa-trash"></i>
+         </button>
      </td>
     </tr>
         
@@ -68,17 +67,23 @@ function displayProduct()
     }
     document.getElementById("tableBody").innerHTML=temp
 }
+/* end display*/ 
 
+/* start reset*/ 
+btnclear.onclick=function()
+{
+reset()
+}
 function reset()
 {
-
   for(i=0;i<inputs.length;i++)
   {
   inputs[i].value=''
   }
-
 }
+/* end reset*/ 
 
+/* start delete*/ 
 
 function deleteProduct(index)
 {
@@ -87,10 +92,9 @@ function deleteProduct(index)
     displayProduct()
 }
 
+/* end delete*/ 
 
-
-
-
+/* start update*/ 
 
 function updateProduct(index)
 {
@@ -122,6 +126,9 @@ btnEdit.onclick=function()
     reset()
 }
 
+/* end update*/ 
+
+/* start search*/ 
 
 searchInput.onkeyup=function()
 {
@@ -153,6 +160,11 @@ searchInput.onkeyup=function()
     }
     document.getElementById("tableBody").innerHTML=CartonA
 }
+
+/* end search*/ 
+
+// validation for product name
+
 nameInput.onkeyup=function()
 {
     var nameRegex = /^[A-Z][a-z]{3,10}[0-9]?$/
@@ -169,9 +181,11 @@ nameInput.onkeyup=function()
   
 }
 
+// validation for product price
+
 priceInput.onkeyup=function()
 {
-    var priceRegex = /^[1-9][0-9]{2,4}$/
+    var priceRegex = /^[1-9][0-9]{2,7}$/
     
     if(priceRegex.test(priceInput.value)==true)
     {
@@ -187,6 +201,9 @@ priceInput.onkeyup=function()
     }
    
 }
+
+// validation for product category
+
 categoryInput.onkeyup=function()
 {
     var categoryRegex = /(mobil|tv)/
@@ -201,6 +218,9 @@ categoryInput.onkeyup=function()
        
     }
 }
+
+// validation for product description
+
 descInput.onkeyup=function()
 {
     var descRegex = /[a-z]{3,40}/
