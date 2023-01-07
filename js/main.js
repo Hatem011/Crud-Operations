@@ -24,6 +24,8 @@ btnAdd.onclick=function()
 
 function addProduct()
 {
+    if(validateName() && validatePrice() && validateCategory() && validateDesc())
+    {
         var product = 
         {
             name:nameInput.value,
@@ -34,6 +36,8 @@ function addProduct()
         }
         ProductList.push(product)
         localStorage.setItem('list',JSON.stringify(ProductList))
+    }
+       
 }
 /* end add */ 
 
@@ -165,73 +169,82 @@ searchInput.onkeyup=function()
 
 // validation for product name
 
-nameInput.onkeyup=function()
+function validateName()
 {
+    var nameTest=false
     var nameRegex = /^[A-Z][a-z]{3,10}[0-9]?$/
 
     if(nameRegex.test(nameInput.value)==true)
     {
         document.getElementById("alertName").style.display="none" 
+        nameTest=true
     }
     else
     {
       document.getElementById("alertName").style.display="block"
-       
+       nameTest=false
     }
-  
+return nameTest  
 }
 
 // validation for product price
 
-priceInput.onkeyup=function()
+function validatePrice()
 {
+    var priceTest=false
     var priceRegex = /^[1-9][0-9]{2,7}$/
     
     if(priceRegex.test(priceInput.value)==true)
     {
         
         document.getElementById("alertPrice").style.display="none"
-        
+        priceTest=true
     }
     else
     {
         
         document.getElementById("alertPrice").style.display="block"
-      
+priceTest=false      
     }
-   
+   return priceTest
 }
 
 // validation for product category
 
-categoryInput.onkeyup=function()
+function validateCategory()
 {
+    var categoryTest=false
     var categoryRegex = /(mobil|tv)/
-
     if(categoryRegex.test(categoryInput.value)==true)
     {
         document.getElementById("alertCategory").style.display="none" 
+        categoryTest=true;
     }
     else
     {
       document.getElementById("alertCategory").style.display="block"
-       
+       categoryTest=false
     }
+    return categoryTest;
 }
 
 // validation for product description
 
-descInput.onkeyup=function()
+function validateDesc()
 {
+    var descTest=false
     var descRegex = /[a-z]{3,40}/
 
     if(descRegex.test(descInput.value)==true)
     {
         document.getElementById("alertDesc").style.display="none" 
+        descTest=true
     }
     else
     {
       document.getElementById("alertDesc").style.display="block"
+      descTest=false;
        
     }
+    return descTest
 }
