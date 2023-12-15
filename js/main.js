@@ -168,7 +168,9 @@ searchInput.onkeyup=function()
 /* end search*/ 
 
 // validation for product name
-
+nameInput.onkeyup=function(){
+    validateName()
+}
 function validateName()
 {
     var nameTest=false
@@ -188,7 +190,9 @@ return nameTest
 }
 
 // validation for product price
-
+priceInput.onkeyup=function(){
+    validatePrice()
+}
 function validatePrice()
 {
     var priceTest=false
@@ -210,7 +214,9 @@ priceTest=false
 }
 
 // validation for product category
-
+categoryInput.onkeyup=function(){
+    validateCategory()
+}
 function validateCategory()
 {
     var categoryTest=false
@@ -229,6 +235,9 @@ function validateCategory()
 }
 
 // validation for product description
+descInput.onkeyup=function(){
+  validateDesc()
+}
 
 function validateDesc()
 {

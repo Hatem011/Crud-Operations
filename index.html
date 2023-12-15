@@ -4,60 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crud App</title>
     <link rel="stylesheet" href="css/all.min.css">
+    <link rel="icon" href="Oxygen-Icons.org-Oxygen-Apps-preferences-contact-list.256.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="w-75 mx-auto py-3 px-4 bg-dark text-white shadow-lg m-5">
-    <h1 class="text-center">CRUD SYSTEM</h1>
+<div class="w-50 mx-auto py-3 p-5 shadow-lg m-5">
+    <h1 class="text-center">Crud System</h1>
         <label for="ProductName">ProductName</label>
-        <input type="text" id="ProductName" class="form-control" onkeyup="validateName()" >
+        <input type="text" id="ProductName" class="form-control mt-1">
         <div class="alert alert-danger py-2 mt-2" id="alertName">
              Enter a Valid Name start With 1 upperCase and includes at least 3 char 
     </div>
    
         <label for="ProductPrice">ProductPrice</label>
-        <input type="number" id="ProductPrice" class="form-control" onkeyup="validatePrice()">
+        <input type="number" id="ProductPrice" class="form-control mt-1">
         <div class="alert alert-danger py-2 mt-2" id="alertPrice">
             Enter a Valid Price contains at least 3 digits and at most 8 digits
     </div>
    
         <label for="ProductCatigory">ProductCategory</label>
-        <input type="text" id="ProductCategory" class="form-control " onkeyup="validateCategory()">
+        <input type="text" id="ProductCategory" class="form-control mt-1 ">
         <div class="alert alert-danger py-2 mt-2" id="alertCategory">
            Category no valid it must be Mobil or tv
        </div>
         <label for="ProductDescription">ProductDescription</label>
-      <textarea id="ProductDescription" class="form-control mb-2" onkeyup="validateDesc()" ></textarea>
+      <textarea id="ProductDescription" class="form-control mb-2 mt-1"></textarea>
       <div class="alert alert-danger py-2 mt-2" id="alertDesc">
        description must be at least 3 words and at most 40 words
     </div>
    
-    <button class="btn btn-outline-info mt-2" id="btnAdd">Add Product</button>
-    <button class="btn btn-outline-info mt-2" id="btnEdit">Edit Product</button>
-    <button class="btn btn-outline-danger mt-2" id="btnclear">Clear Form</button>
+    <button class="btn btn-primary mt-2" id="btnAdd">Add Product</button>
+    <button class="btn btn-primary mt-2" id="btnEdit">Edit Product</button>
+    <button class="btn btn-danger mt-2" id="btnclear">Clear Form</button>
 </div>
 
 <div class=" w-75 mx-auto">
-<input type="text"class="form-control my-5"placeholder="Search"id="searchInput">
+<input type="text"class="form-control my-5 w-50 mx-auto"placeholder="Search by name"id="searchInput">
+<div class="table-responsive">
+    <table class="table table-striped table-bordered text-center">
+        <thead>
+            <th>#</th>
+            <th>ProductName</th>
+            <th>ProductPrice</th>
+            <th>ProductCategory</th>
+            <th>ProductDescription</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </thead>
+<tbody id="tableBody">
+  
+</tbody>
+</table>
 
-            <table class="table table-striped">
-                <thead>
-                    <th>#</th>
-                    <th>ProductName</th>
-                    <th>ProductPrice</th>
-                    <th>ProductCategory</th>
-                    <th>ProductDescription</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </thead>
-        <tbody id="tableBody">
-          
-        </tbody>
-            </table>
-
+</div>
+           
 </div>
     <script src="js/main.js"></script>
 </body>
