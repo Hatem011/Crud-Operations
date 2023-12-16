@@ -56,12 +56,12 @@ function displayProduct()
         <td>${ProductList[i].Category}</td>
         <td>${ProductList[i].description}</td>
         <td>
-            <button class="btn btn-outline-danger" onclick="updateProduct(`+i+`)">
+            <button class="btn btn-outline-warning" onclick="updateProduct(`+i+`)">
             <i class="fas fa-edit"></i>
             </button>
         </td>
         <td>
-         <button class="btn btn-outline-warning" onclick="deleteProduct(`+i+`)">
+         <button class="btn btn-outline-danger" onclick="deleteProduct(`+i+`)">
          <i class="fas fa-trash"></i>
          </button>
      </td>
