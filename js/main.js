@@ -220,7 +220,7 @@ categoryInput.onkeyup=function(){
 function validateCategory()
 {
     var categoryTest=false
-    var categoryRegex = /(mobil|tv)/
+    var categoryRegex = /(mobil|tv|lab|Electrical device)/
     if(categoryRegex.test(categoryInput.value)==true)
     {
         document.getElementById("alertCategory").style.display="none" 
